@@ -30,7 +30,7 @@ export default class MySwiper extends React.Component<SwiperProp> {
 
   private getMixtrueStyle(): Style {
     const style = this.getDefaultStyle();
-    Object.assign(style, StyleSheet.flatten(this.props.style));
+    Object.assign(style.wrapper, StyleSheet.flatten(this.props.style));
     return style;
   }
 

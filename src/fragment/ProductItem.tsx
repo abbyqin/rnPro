@@ -2,13 +2,15 @@ import { ProductItem } from "@/commons/entity";
 import Cover from "@/components/Cover";
 import React from "react";
 import { ImageStyle, StyleSheet, Text, TextStyle, View, ViewStyle } from "react-native";
+import Svg from '@/components/Svg';
 
 type Style={
   wrapper: ViewStyle,
   cover: ImageStyle,
   content: ViewStyle,
   title: TextStyle,
-  price: TextStyle
+  price: TextStyle,
+  icon: ImageStyle,
 }
 
 interface ProductProp extends ProductItem{
@@ -20,14 +22,22 @@ export default class Product extends React.Component<ProductProp>{
   private getDefaultStyle(): Style{
     return {
       wrapper:{       
-        width: '30%',
         borderRadius: 10,
         overflow: "hidden",
-        marginHorizontal: 5
+        paddingHorizontal: 5,
+        marginBottom: 20,
       },
       cover:{
-        width: 110,
-        height: 110
+        width: '100%',
+        aspectRatio: 1,
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: '#eff6f7',
+        borderRadius:5,
+        marginBottom: 10,        
+      },
+      icon: {
+        alignSelf: 'center',
       },
       content: {
         display: 'flex',
@@ -40,8 +50,8 @@ export default class Product extends React.Component<ProductProp>{
   }
 
   private getMixtrueStyle(): Style{
-    const style = this.getDefaultStyle()
-    Object.assign(style, StyleSheet.flatten(this.props.style));
+    const style = this.getDefaultStyle()    
+    Object.assign(style.wrapper, StyleSheet.flatten(this.props.style));
     return style
   }
 
@@ -50,7 +60,10 @@ export default class Product extends React.Component<ProductProp>{
     const {cover, title, price} = this.props
     return(
       <View style={style.wrapper}>
-        <Cover source={{uri: cover}} style={style.cover}/>
+        {/* <Cover source={{uri: cover}} style={style.cover}/> */}
+        <View style={style.cover}>
+          <Svg icon={cover} size='60' style={style.icon}></Svg>
+        </View>        
         <View style={style.content}>
           <Text style={style.title}>{title}</Text>
           <Text style={style.price}>{price}</Text>
