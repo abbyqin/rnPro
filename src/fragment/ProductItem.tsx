@@ -1,8 +1,8 @@
 import { ProductItem } from "@/commons/entity";
 import Cover from "@/components/Cover";
+import Icon from "@/components/Icon";
 import React from "react";
 import { ImageStyle, StyleSheet, Text, TextStyle, View, ViewStyle } from "react-native";
-import Svg from '@/components/Svg';
 
 type Style={
   wrapper: ViewStyle,
@@ -42,7 +42,8 @@ export default class Product extends React.Component<ProductProp>{
       content: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        paddingHorizontal: 8,
       },
       title: {},
       price: {}
@@ -62,7 +63,7 @@ export default class Product extends React.Component<ProductProp>{
       <View style={style.wrapper}>
         {/* <Cover source={{uri: cover}} style={style.cover}/> */}
         <View style={style.cover}>
-          <Svg icon={cover} size='60' style={style.icon}></Svg>
+          <Icon name={cover} size={60} style={style.icon} />
         </View>        
         <View style={style.content}>
           <Text style={style.title}>{title}</Text>

@@ -1,27 +1,24 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
-  TextStyle,
-  View,
   ViewProps,
   ViewStyle,
 } from 'react-native';
-import Swiper from 'react-native-swiper';
+import Swiper, { SwiperProps } from 'react-native-swiper';
 
 type Style = {
   wrapper: ViewStyle;
 };
 
-interface SwiperProp extends ViewProps {
+interface SwiperProp extends SwiperProps {
   option?:{
     showsButtons?: true,
-    loop?: false
+    loop?: false,
   } 
 }
 
-export default class MySwiper extends React.Component<SwiperProp> {
-  static displayName = 'RNSwiper'
+export default class MySwiper extends React.Component<SwiperProps> {
+  static displayName = 'Swiper'
   private getDefaultStyle(): Style {
     return {
       wrapper: {}      
@@ -36,7 +33,7 @@ export default class MySwiper extends React.Component<SwiperProp> {
 
   render() {
     const styles = this.getMixtrueStyle();
-    const operation = this.props.option
+    const operation = this.props
     return (
       <Swiper style={styles.wrapper} {...operation}>
        {this.props.children}

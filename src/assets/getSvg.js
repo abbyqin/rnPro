@@ -1,7 +1,7 @@
 //  getSvg.js
 var fs = require('fs');
 var path = require('path');
-const svgDir = path.resolve(__dirname, './SVG');
+const svgDir = path.resolve(__dirname, './svgs');
 
 // 读取单个文件
 function readfile(filename) {

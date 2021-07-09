@@ -1,0 +1,20 @@
+[
+  {
+    "cover": "apple",
+    "title": "标题一",
+    "price": 100,
+    "id": "1"
+  },
+  {
+    "cover": "apricot",
+    "title": "标题二",
+    "price": 200,
+    "id": "2"
+  },
+  {
+    "cover": "blueberry",
+    "title": "标题三",
+    "price": 300,
+    "id": "3"
+  }
+]
