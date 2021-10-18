@@ -64,7 +64,7 @@ export default class HomePage extends React.Component {
                 datas.map((item: ProductItem, index: Number) => {
                   return (
                     <View key={item.id} style={style.slide}>
-                      <Icon name={item.cover} size={30}></Icon>
+                      <Icon name={item.cover} size={50}></Icon>
                     </View>
                   )
                 })

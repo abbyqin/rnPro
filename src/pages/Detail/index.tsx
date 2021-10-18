@@ -4,7 +4,7 @@ import Icon from "@/components/Icon";
 import Swiper from "@/components/Swiper";
 import axios from "axios";
 import React from "react";
-import { SafeAreaView, ScrollView, View, ViewStyle, TextStyle, Text } from "react-native";
+import { ScrollView, View, ViewStyle, TextStyle, Text } from "react-native";
 
 const datas = require('@/data/detail.json');
 type Style = {
@@ -30,6 +30,9 @@ type Style = {
 }
 
 export default class DetailPage extends React.Component {
+  constructor(props:any){
+    super(props);
+  }
   private getDefaultStyle(): Style {
     const black = "#333333";
     const grey = "#e1e1e1"
@@ -171,13 +174,21 @@ export default class DetailPage extends React.Component {
   private getMixtrueStyle(): Style {
     return this.getDefaultStyle();
   }
-  async componentDidMount(){
-    const { data: indexData } = await axios.get('/');
-    console.log('indexData : ', indexData)
+  // async componentDidMount(){
+  //   const {data} = await axios.get('/');
+  //   console.log('数据 : ', data)
+  // }
+
+  private async getDataList(){
+    const {data} = await axios.get('/');
+    console.log('数据 : ', data)
   }
+
+
 
   render() {
     const style = this.getMixtrueStyle();
+    this.getDataList();
     return (
       <View style={style.wrap}>
         <ScrollView contentContainerStyle={style.scrollView}>
