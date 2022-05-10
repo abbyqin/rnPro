@@ -15,7 +15,7 @@ interface HomePageProps {
 
 export default class HomePage extends React.Component<HomePageProps> {
   constructor(props: any){
-    super(props);    
+    super(props);
   }
 
   static contextType = ThemeContext;
@@ -31,7 +31,7 @@ export default class HomePage extends React.Component<HomePageProps> {
   itemRef = React.createRef<ListItem>();
 
   private getDefaultStyle(): Style {
-    let theme = this.context;    
+    let theme = this.context;
     return {
       wrapper: {
         width: '100%',
@@ -69,22 +69,22 @@ export default class HomePage extends React.Component<HomePageProps> {
 
   render() {
     const style = this.getMixtrueStyle();
-    
+
     return (
       <SafeAreaView>
         <View style={style.wrapper}>
           <ThemeContext.Provider value={this.state.theme}>
             <ListItem ref={this.itemRef} parentClick={this.parentClick}/>
-          </ThemeContext.Provider>     
+          </ThemeContext.Provider>
         </View>
         <TouchableOpacity onPress={this.parentChildrenClick.bind(this)}>
           <Text>我是父组件</Text>
         </TouchableOpacity>
         <TouchableOpacity style={style.wrapper2} onPress={this.changeTheme.bind(this)}>
-          <Text>2222</Text>
+          <Text>22221</Text>
         </TouchableOpacity>
       </SafeAreaView>
-      
+
     );
   }
 }
